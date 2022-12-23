@@ -13,7 +13,7 @@ python3 -m pip install --upgrade bruhcolor
 ### From source
 
 ```bash
-git clone https://github.com/bruhcolor/bruhcolor
+git clone https://github.com/ethanlchristensen/bruhcolor
 cd bruhcolor
 python3 -m pip install .
 ```
