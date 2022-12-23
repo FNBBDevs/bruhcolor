@@ -1,0 +1,8 @@
+# Ignore dist
+dist/
+
+# Ignore build
+build/
+
+# Ignore egg-info
+bruhcolor.egg-info/
