@@ -51,3 +51,5 @@ print(len(test_1))
 print(len(test_2))
 print(len(test_3))
 ```
+<br/>
+<img src="https://i.ibb.co/q9h1qtY/sample-run.png" alt="sample-run" border="0"><br/><br/>
