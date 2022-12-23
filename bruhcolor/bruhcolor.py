@@ -8,10 +8,7 @@ with that of termcolor, the ANSII Color formater
 that suported around 8 colors total             
 """
 
-from __future__ import print_function
 import os
-import re
-
 
 class bruhcolorwrapper:
     """
@@ -85,7 +82,7 @@ class bruhcolorwrapper:
 
 __AVAILABLE_COMMANDS__ = ['bruhcolored', 'colors']
 
-VERSION = (0, 0, 1)
+VERSION = (0, 0, 32)
 
 # GENERATE THE 256 COLORS -> [38;5;#m for color
 COLORS = {}
