@@ -23,5 +23,31 @@ python -m pip install .
 ## Example / Usage
 
 ```python
-from bruhcolor import bruhcolored
+import bruhcolor
+
+# Display all of the color codes
+bruhcolor.colors()
+
+# Simple test message
+test_1 = bruhcolor.bruhcolored("Hello World from bruhcolor!", color=24)
+print(test_1)
+# Support mult repition
+print(test_1 * 5)
+print()
+
+# More in depth example
+test_2 = bruhcolor.bruhcolored("Hello World from bruhcolor!", color=24, on_color=196, attrs=['blink', 'reverse', 'italic'])
+print(test_2)
+print()
+
+test_3 = test_1 + test_2
+print(test_3)
+test_3 += "How are you doing?"
+print(test_3)
+print()
+
+# Getting lengths
+print(len(test_1))
+print(len(test_2))
+print(len(test_3))
 ```
