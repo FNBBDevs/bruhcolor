@@ -7,7 +7,7 @@
 ### From PyPI
 
 ```bash
-python3 -m pip install --upgrade bruhcolor
+python -m pip install --upgrade bruhcolor
 ```
 
 ### From source
@@ -15,7 +15,7 @@ python3 -m pip install --upgrade bruhcolor
 ```bash
 git clone https://github.com/ethanlchristensen/bruhcolor
 cd bruhcolor
-python3 -m pip install .
+python -m pip install .
 ```
 
 ## Example
