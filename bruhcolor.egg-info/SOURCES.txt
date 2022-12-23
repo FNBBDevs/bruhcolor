@@ -1,0 +1,9 @@
+COPYING.txt
+README.md
+setup.py
+bruhcolor/__init__.py
+bruhcolor/bruhcolor.py
+bruhcolor.egg-info/PKG-INFO
+bruhcolor.egg-info/SOURCES.txt
+bruhcolor.egg-info/dependency_links.txt
+bruhcolor.egg-info/top_level.txt

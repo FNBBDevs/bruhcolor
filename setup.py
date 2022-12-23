@@ -7,7 +7,7 @@ here = os.path.abspath(os.path.dirname(__file__))
 with codecs.open(os.path.join(here, "README.md"), encoding="utf-8") as fh:
     long_description = "\n" + fh.read()
 
-VERSION = '0.0.1'
+VERSION = '0.0.32'
 DESCRIPTION = '256 Color Terminal Text Formatter'
 LONG_DESCRIPTION = 'A package that allows for various text modifications to terminal ouput in python.'
 
@@ -24,7 +24,7 @@ setup(
     install_requires=[],
     keywords=['python', 'terminal', 'text coloring', 'bruhcolor'],
     classifiers=[
-        "Development Status :: 1 - Beta",
+        "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",
         "Programming Language :: Python :: 3",
         "Operating System :: Unix",
