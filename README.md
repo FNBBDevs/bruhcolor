@@ -53,3 +53,8 @@ print(len(test_3))
 ```
 <br/>
 <img src="https://i.ibb.co/94RrnQ7/sample-run.png" alt="sample-run" border="0"><br/><br/>
+<ul>
+  <li>Color Codes: 0 - 255</li>
+  <li>Highlight Codes: 0 - 255</li>
+  <li>Attributes: blink, reverse, bold, crossed-out, italic, underline, dark, concealed</li>
+ </ul>
