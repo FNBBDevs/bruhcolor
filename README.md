@@ -18,14 +18,6 @@ cd bruhcolor
 python3 -m pip install .
 ```
 
-### Demo
-
-To see demo output, run:
-
-```bash
-python3 -m termcolor
-```
-
 ## Example
 
 ```python
