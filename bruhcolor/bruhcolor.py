@@ -78,6 +78,9 @@ class bruhcolorwrapper(Sequence):
     def __getitem__(self, i):
         return self.text[i]
 
+    def __contains__(self, value):
+        return value in self.text
+
     def copy(self):
         text = self.text
         colored = self.colored
@@ -87,7 +90,7 @@ class bruhcolorwrapper(Sequence):
 
 __AVAILABLE_COMMANDS__ = ['bruhcolored', 'colors']
 
-VERSION = (0, 0, 36)
+VERSION = (0, 0, 37)
 
 # GENERATE THE 256 COLORS -> [38;5;#m for color
 COLORS = {}
