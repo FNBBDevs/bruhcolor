@@ -9,8 +9,9 @@ that suported around 8 colors total
 """
 
 import os
+from collections.abc import Sequence
 
-class bruhcolorwrapper:
+class bruhcolorwrapper(Sequence):
     """
     This class serves as a mean to wrap over the 
     color coded text. Wrapping it allows us to 
@@ -22,6 +23,7 @@ class bruhcolorwrapper:
     def __init__(self, text, colored):
         self.text = text
         self.colored = colored
+        super().__init__()
 
     def __len__(self):
         return len(self.text)
@@ -72,6 +74,9 @@ class bruhcolorwrapper:
         tmp.text *= val
         tmp.colored *= val
         return tmp
+    
+    def __getitem__(self, i):
+        return self.text[i]
 
     def copy(self):
         text = self.text
@@ -82,7 +87,7 @@ class bruhcolorwrapper:
 
 __AVAILABLE_COMMANDS__ = ['bruhcolored', 'colors']
 
-VERSION = (0, 0, 32)
+VERSION = (0, 0, 36)
 
 # GENERATE THE 256 COLORS -> [38;5;#m for color
 COLORS = {}
@@ -128,7 +133,7 @@ def bruhcolored(text, color=None, on_color=None, attrs=None):
     text, orig_text = str(text), str(text)
 
     if not color and not on_color and not attrs:
-        return text
+        return bruhcolorwrapper(orig_text, text)
     
     if os.getenv('ANSI_COLORS_DISABLED') is None:
         if color is not None:
