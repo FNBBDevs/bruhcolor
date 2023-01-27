@@ -88,23 +88,65 @@ class bruhcolorwrapper(Sequence):
 
 
 
-__AVAILABLE_COMMANDS__ = ['bruhcolored', 'colors']
+__AVAILABLE_COMMANDS__ = ['bruhcolored8', 'bruhcolored256', 'colors8', 'colors256', 'color_codes8', 'color_codes256']
 
-VERSION = (0, 0, 37)
+VERSION = (0, 0, 4)
 
 # GENERATE THE 256 COLORS -> [38;5;#m for color
-COLORS = {}
+COLORS_256 = {}
 for i in range(16):
     for j in range(16):
         code = str(i * 16 + j)
-        COLORS[code] = u"\u001b[38;5;" + code + "m"
-    
+        COLORS_256[code] = u"\033[38;5;" + code + "m"
+
+# GENERATE THE 17 COLORS
+COLORS_8 = {
+    "black": "\033[30m",
+    "grey": "\033[30m",
+    "red": "\033[31m",
+    "green": "\033[32m",
+    "yellow": "\033[33m",
+    "blue": "\033[34m",
+    "magenta": "\033[35m",
+    "cyan": "\033[36m",
+    "light_grey": "\033[37m",
+    "dark_grey": "\033[90m",
+    "light_red": "\033[91m",
+    "light_green": "\033[92m",
+    "light_yellow": "\033[93m",
+    "light_blue": "\033[94m",
+    "light_magenta": "\033[95m",
+    "light_cyan": "\033[96m",
+    "white": "\033[97m",
+}
+
+# GENERATE THE 17 BACKGROUND COLORS
+HIGHLIGHTS_8 = {
+    "black": "\033[40m",
+    "grey": "\033[40m",
+    "red": "\033[41m",
+    "green": "\033[42m",
+    "yellow": "\033[43m",
+    "blue": "\033[44m",
+    "magenta": "\033[45m",
+    "cyan": "\033[46m",
+    "light_grey": "\033[47m",
+    "dark_grey": "\033[100m",
+    "light_red": "\033[101m",
+    "light_green": "\033[102m",
+    "light_yellow": "\033[103m",
+    "light_blue": "\033[104m",
+    "light_magenta": "\033[105m",
+    "light_cyan": "\033[106m",
+    "white": "\033[107m",
+}
+
 # GENERATE THE 256 BACKGROUND COLORS -> [48;5;#m for backgrounf
-HIGHLIGHTS = {}
+HIGHLIGHTS_256 = {}
 for i in range(16):
     for j in range(16):
         code = str(i * 16 + j)
-        HIGHLIGHTS[code] = u"\u001b[48;5;" + code + "m"
+        HIGHLIGHTS_256[code] = u"\033[48;5;" + code + "m"
 
 # Possible attributes
 ATTRIBUTES = {
@@ -119,10 +161,11 @@ ATTRIBUTES = {
 }
 
 # Reset token to restore orginal formatting
-RESET = u'\u001b[0m'
+RESET_256 = u'\u001b[0m'
+RESET_8   = '\033[0m'
 
 
-def bruhcolored(text, color=None, on_color=None, attrs=None):
+def bruhcolored256(text, color=None, on_color=None, attrs=None):
     """
     desc:    Generates the properly escape sequenced string for the 
              user inputeed text
@@ -140,35 +183,103 @@ def bruhcolored(text, color=None, on_color=None, attrs=None):
     
     if os.getenv('ANSI_COLORS_DISABLED') is None:
         if color is not None:
-            if str(color) in COLORS:
-                text = (COLORS[str(color)] + text)
+            if str(color) in COLORS_256:
+                text = (COLORS_256[str(color)] + text)
         if on_color is not None:
-            if str(on_color) in HIGHLIGHTS:
-                text = '\u001b[' + HIGHLIGHTS[str(on_color)] + text
+            if str(on_color) in HIGHLIGHTS_256:
+                text = '\u001b[' + HIGHLIGHTS_256[str(on_color)] + text
+        if attrs is not None:
+            for attr in attrs:
+                if attr in ATTRIBUTES:
+                    text = '\u001b[' + str(ATTRIBUTES[attr]) + "m" + text
+    return bruhcolorwrapper(orig_text, text + RESET_256)
+
+
+def bruhcolored8(text, color=None, on_color=None, attrs=None):
+    """
+    desc:    Generates the properly escape sequenced string for the 
+             user inputeed text
+    args: 
+             text     -> text to be escape sequenced
+             color    -> the color code to color the text
+             on_color -> the color to set the background
+             attrs    -> list of other attributes to apply to the text
+    returns: wrapper-object for the colored string
+    """
+    text, orig_text = str(text), str(text)
+
+    if not color and not on_color and not attrs:
+        return bruhcolorwrapper(orig_text, text)
+    
+    if os.getenv('ANSI_COLORS_DISABLED') is None:
+        if color is not None:
+            if str(color) in COLORS_8:
+                text = (COLORS_8[str(color)] + text)
+        if on_color is not None:
+            if str(on_color) in HIGHLIGHTS_8:
+                text = HIGHLIGHTS_8[str(on_color)] + text
         if attrs is not None:
             for attr in attrs:
                 if attr in ATTRIBUTES:
                     text = '\033[' + str(ATTRIBUTES[attr]) + "m" + text
-    return bruhcolorwrapper(orig_text, text + RESET)
+    return bruhcolorwrapper(orig_text, text + RESET_8)
     
 
-def colors():
+def colors256():
     """
     desc:    prints out all of the colors supported
     args:    None
     returns: None
     """
-    for i in range(0, len(COLORS), 16):
+    for i in range(0, len(COLORS_256), 16):
         for j in range(i, i + 16):
-            c = bruhcolored((' ' * (4 - len(str(j)))) + (str(j)), color=j, on_color=231)
+            c = bruhcolored256((' ' * (4 - len(str(j)))) + (str(j)), color=j, on_color=231)
             print(f"{c}", end="")
         print()
-    for i in range(0, len(COLORS), 16):
+    for i in range(0, len(COLORS_256), 16):
         for j in range(i, i + 16):
-            c = bruhcolored((' ' * (4 - len(str(j)))) + (str(j)), color=j, on_color=232)
+            c = bruhcolored256((' ' * (4 - len(str(j)))) + (str(j)), color=j, on_color=232)
             print(f"{c}", end="")
         print()
 
 
-def color_codes():
+def colors8():
+    """
+    desc:    prints out all of the colors supported
+    args:    None
+    returns: None
+    """
+    for i, color in enumerate(list(COLORS_8)):
+        c = bruhcolored8(f"{color:^20s}", color=color, on_color="black")
+        if i != 0 and i % 2 == 0:
+            print()
+            print(c,end="")
+        else:
+            print(c,end="")
+    print()
+
+    for i, color in enumerate(list(COLORS_8)):
+        c = bruhcolored8(f"{color:^20s}", color=color, on_color="white")
+        if i != 0 and i % 2 == 0:
+            print()
+            print(c,end="")
+        else:
+            print(c,end="")
+    print()
+
+
+def color_codes256():
     return list(range(256))
+
+
+def color_codes8():
+    for i, color in enumerate(list(COLORS_8.keys())):
+        if i != 0 and i % 2 == 0:
+            print(f"{color:<15s}", end="")
+            print()
+        else:
+            print(f"{color:<15s}", end={})
+
+
+
+
