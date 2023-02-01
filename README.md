@@ -9,7 +9,7 @@
 ### From PyPI
 
 ```bash
-python -m pip install --upgrade bruhcolor
+pip install --upgrade bruhcolor
 ```
 
 ### From source
@@ -26,17 +26,17 @@ python -m pip install .
 import bruhcolor
 
 # Display all of the color codes
-bruhcolor.colors()
+bruhcolor.colors(support="full")
 
 # Simple test message
-test_1 = bruhcolor.bruhcolored("Hello World from bruhcolor!", color=24)
+test_1 = bruhcolor.bruhcolored("Hello World from bruhcolor!", color=24, support="full")
 print(test_1)
 # Support mult repition
 print(test_1 * 5)
 print()
 
 # More in depth example
-test_2 = bruhcolor.bruhcolored("Hello World from bruhcolor!", color=24, on_color=196, attrs=['blink', 'reverse', 'italic'])
+test_2 = bruhcolor.bruhcolored("Hello World from bruhcolor!", color=24, on_color=196, attrs=['blink', 'reverse', 'italic'], support="full")
 print(test_2)
 print()
 
