@@ -227,7 +227,7 @@ def bruhcolored(text, color=None, on_color=None, attrs=None):
     return bruhcolorwrapper(orig_text, text + RESET_256)
 
 
-def colors(support="limited"):
+def colors(support="limited", on_color="black"):
     """
     desc:    prints out all of the colors supported
     args:    None
@@ -236,26 +236,12 @@ def colors(support="limited"):
     if support == "full":
         for i in range(0, len(COLORS_256), 16):
             for j in range(i, i + 16):
-                c = bruhcolored((' ' * (4 - len(str(j)))) + (str(j)), color=j, on_color=231)
-                print(f"{c}", end="")
-            print()
-        for i in range(0, len(COLORS_256), 16):
-            for j in range(i, i + 16):
-                c = bruhcolored((' ' * (4 - len(str(j)))) + (str(j)), color=j, on_color=232)
+                c = bruhcolored((' ' * (4 - len(str(j)))) + (str(j)), color=j, on_color=on_color)
                 print(f"{c}", end="")
             print()
     else:
         for i, color in enumerate(list(COLORS_8)):
-            c = bruhcolored(f"{color:^20s}", color=color, on_color="black")
-            if i != 0 and i % 2 == 0:
-                print()
-                print(c,end="")
-            else:
-                print(c,end="")
-        print()
-
-        for i, color in enumerate(list(COLORS_8)):
-            c = bruhcolored(f"{color:^20s}", color=color, on_color="white")
+            c = bruhcolored(f"{color:^20s}", color=color, on_color=on_color)
             if i != 0 and i % 2 == 0:
                 print()
                 print(c,end="")
