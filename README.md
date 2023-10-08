@@ -24,6 +24,7 @@
 - light_magenta
 - light_cyan
 - white
+
 ![image](https://github.com/FNBBDevs/bruhcolor/assets/55725575/e83924eb-6af5-446c-afdf-2b97b02d5773)
 ![image](https://github.com/FNBBDevs/bruhcolor/assets/55725575/f8d2e454-d6b7-4dd5-ac63-fff7dee6e1e7)
 
