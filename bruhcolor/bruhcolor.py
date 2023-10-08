@@ -90,7 +90,7 @@ class bruhcolorwrapper(Sequence):
 
 __AVAILABLE_COMMANDS__ = ['bruhcolored', 'colors', 'color_codes', 'valid_effects']
 
-VERSION = (0, 0, 56)
+VERSION = (0, 0, 62)
 
 # GENERATE THE 256 COLORS -> [38;5;#m for color
 COLORS_256 = {}
@@ -120,6 +120,8 @@ COLORS_8 = {
     "white": "\033[97m",
 }
 
+VALID_COLORS_8_NAMES = list(COLORS_8.keys())
+
 # GENERATE THE 17 BACKGROUND COLORS
 HIGHLIGHTS_8 = {
     "black": "\033[40m",
@@ -140,6 +142,8 @@ HIGHLIGHTS_8 = {
     "light_cyan": "\033[106m",
     "white": "\033[107m",
 }
+
+VALID_HIGHLIGHTS_8_NAMES = list(HIGHLIGHTS_8.keys())
 
 # GENERATE THE 256 BACKGROUND COLORS -> [48;5;#m for backgrounf
 HIGHLIGHTS_256 = {}
