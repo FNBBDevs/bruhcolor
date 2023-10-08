@@ -25,6 +25,11 @@
 - light_cyan
 - white
 
+## Valid full mode colors
+![image](https://github.com/FNBBDevs/bruhcolor/assets/55725575/a71f176a-d1a7-4a6b-934a-8d648ec681e4)
+![image](https://github.com/FNBBDevs/bruhcolor/assets/55725575/f465a9b1-6aa8-4b28-baa7-935fe920c121)
+
+
 ## Installation
 
 ### From PyPI
