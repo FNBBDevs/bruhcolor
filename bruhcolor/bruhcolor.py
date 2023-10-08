@@ -90,7 +90,7 @@ class bruhcolorwrapper(Sequence):
 
 __AVAILABLE_COMMANDS__ = ['bruhcolored', 'colors', 'color_codes', 'valid_effects']
 
-VERSION = (0, 0, 62)
+VERSION = (0, 0, 63)
 
 # GENERATE THE 256 COLORS -> [38;5;#m for color
 COLORS_256 = {}
