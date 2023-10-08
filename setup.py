@@ -8,6 +8,7 @@ with codecs.open(os.path.join(here, "README.md"), encoding="utf-8") as fh:
     long_description = "\n" + fh.read()
 
 VERSION = '0.0.62'
+VERSION = '0.0.61'
 DESCRIPTION = '256 Color Terminal Text Formatter'
 LONG_DESCRIPTION = 'A package that allows for various text modifications to terminal ouput in python.'
 
