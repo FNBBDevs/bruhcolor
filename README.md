@@ -77,4 +77,4 @@ This will print out all the available attributes.
 
 ## License
 
-bruhcolor is licensed under the MIT License. See [LICENSE](https://github.com/your-username/bruhcolor/blob/main/LICENSE) for more information.
+bruhcolor is licensed under the MIT License. See [LICENSE](https://github.com/FNBBDevs/bruhcolor/blob/main/COPYING.txt) for more information.
