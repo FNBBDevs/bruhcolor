@@ -7,90 +7,79 @@
 [![PyPI version](https://badge.fury.io/py/bruhcolor.svg)](https://badge.fury.io/py/bruhcolor)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-bruhcolor is a Python package that allows you to color text in the terminal. It supports 256 colors by using color codes ranging from 0 to 255. Additionally, it provides a set of predefined color names for ease of use.
+# bruhcolor
+
+bruhcolor is a Python package that allows you to color text in the terminal. It supports both 8-color and 256-color formatting, providing a wide range of colors to choose from. The package is available on PYPI and is licensed under the MIT license.
 
 ## Installation
 
-You can install bruhcolor using pip:
+To install bruhcolor, you can use pip:
 
-```bash
+```shell
 pip install bruhcolor
 ```
 
 ## Usage
 
-Here's an example of how to use bruhcolor:
+To use bruhcolor, simply import the `bruhcolored` function from the package:
 
 ```python
 from bruhcolor import bruhcolored
+```
 
+You can then use the `bruhcolored` function to color your text. Here's an example:
+
+```python
 colored_text = bruhcolored("Hello world!", color="red", on_color=194, attrs=["bold", "blink"])
 
 print(colored_text)
 ```
 
-This will print "Hello world!" in red color with a background color of 194. The text will also have the attributes of bold and blink.
+This will output the text "Hello world!" in red color, with a background color of 194 and the attributes "bold" and "blink" applied.
 
-## Predefined Colors
+## Available Colors
 
-bruhcolor supports the following predefined colors:
+bruhcolor supports a wide range of colors. You can use either the 8-color or 256-color formatting. Here are some examples of available colors:
 
-- black
-- grey
-- red
-- green
-- yellow
-- blue
-- magenta
-- cyan
-- light_grey
-- dark_grey
-- light_red
-- light_green
-- light_yellow
-- light_blue
-- light_magenta
-- light_cyan
-- white
+- 8-color: black, grey, red, green, yellow, blue, magenta, cyan, light_grey, dark_grey, light_red, light_green, light_yellow, light_blue, light_magenta, light_cyan, white
+- 256-color: You can use any number between 0 and 255 to specify a color.
 
-You can use these color names instead of color codes for convenience.
-
-## Attributes
-
-bruhcolor also supports various text attributes that can be applied to the colored text. These attributes include:
-
-- blink
-- reverse
-- bold
-- crossed-out
-- italic
-- underline
-- dark
-- concealed
-
-You can specify multiple attributes by passing them as a list to the `attrs` parameter in the `bruhcolored` function.
-
-## More Examples
-
-Here are a few more examples to demonstrate the usage of bruhcolor:
+To see a full list of available colors, you can use the `colors` function:
 
 ```python
-from bruhcolor import bruhcolored
+from bruhcolor import colors
 
-# Example 1: Colored text with predefined color name
-colored_text = bruhcolored("Hello world!", color="green", attrs=["bold"])
-print(colored_text)
-
-# Example 2: Colored text with color code
-colored_text = bruhcolored("Hello world!", color=123, attrs=["underline"])
-print(colored_text)
-
-# Example 3: Colored text with background color
-colored_text = bruhcolored("Hello world!", color="blue", on_color="yellow", attrs=["italic"])
-print(colored_text)
+colors(support="full")
 ```
 
-Feel free to explore and experiment with the various color codes, color names, and attributes to customize your terminal text.
+This will print out all the available colors.
+
+## Available Attributes
+
+bruhcolor also supports various attributes that you can apply to your text. Here are some examples of available attributes:
+
+- bold
+- dark
+- italic
+- underline
+- blink
+- reverse
+- concealed
+- crossed-out
+
+To see a full list of available attributes, you can use the `valid_effects` function:
+
+```python
+from bruhcolor import valid_effects
+
+valid_effects()
+```
+
+This will print out all the available attributes.
+
+## Additional Information
+
+For more information on how to use bruhcolor, you can refer to the [bruhcolor documentation](https://github.com/ethanlchristensen/bruhcolor).
 
 ## License
 
