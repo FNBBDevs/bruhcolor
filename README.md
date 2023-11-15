@@ -7,8 +7,6 @@
 [![PyPI version](https://badge.fury.io/py/bruhcolor.svg)](https://badge.fury.io/py/bruhcolor)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-# bruhcolor
-
 bruhcolor is a Python package that allows you to color text in the terminal. It supports both 8-color and 256-color formatting, providing a wide range of colors to choose from. The package is available on PYPI and is licensed under the MIT license.
 
 ## Installation
@@ -76,10 +74,6 @@ valid_effects()
 ```
 
 This will print out all the available attributes.
-
-## Additional Information
-
-For more information on how to use bruhcolor, you can refer to the [bruhcolor documentation](https://github.com/ethanlchristensen/bruhcolor).
 
 ## License
 
